@@ -1,0 +1,104 @@
+.messages-main-container{
+    padding: 0 1rem 0 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0.5rem;
+
+}
+
+/* ::-webkit-scrollbar{
+    
+}
+
+ ::-webkit-scrollbar-track{
+
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(28, 36, 200) !important;
+} */
+
+
+.mediaImage{
+    width: 14rem;
+    height: 15rem;
+}
+.videoclass{
+    width: 16rem;
+    height: 12rem;
+}
+
+.emoji_logo{
+    width: 1.1rem;
+    margin: 0.2rem;
+    position: relative;
+    top: 0.4rem;
+}
+
+
+.emoji_logo:hover{
+    background-color: rgb(242, 208, 196);
+}
+.messages-main-container__text-left{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+.messages-main-container__text-right{
+    align-self: flex-start;
+    justify-self: flex-start;
+    display: flex;
+    
+}
+
+.messages-main-container__text-inner{
+   
+  width: 17rem; 
+   
+   background-color: #D5FFD5;
+   border-radius: 0.2rem;
+}
+.messages-main-container__h3{
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    position: relative;
+    top: 0.3rem;
+    font-weight: 600;
+    
+}
+.messages-main-container__p{
+    font-size: 0.6rem;
+    float: right;
+position: relative;
+right: 0.5rem;
+}
+.location_container{
+    border: none;
+    width: 14.2rem;
+    height: 15rem;
+ 
+}
+.download__icon{
+    width: 1.5rem;
+    position: relative;
+    float: right;
+    right: 0.8rem;
+    bottom: 0.3rem;
+}
+
+
+.emoji_logo{
+    display: none;
+}
+
+.messages-main-container:hover .emoji_logo{
+    display: block;
+
+}
+
+

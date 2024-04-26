@@ -1,0 +1,33 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+* {
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  user-select: none;
+}
+
+html {
+  font-size: 1.146vw;
+  /* font-size:22px */
+}
+
+:root {
+  --brandClr: #802a8f;
+  --grayClr : #999999;
+  --grayClr2:#f3f3f3;
+  --grayClr3:#EAEAEA;
+  --pinkClr: #f0d0dd;
+  --pinkClr2: #f0d0dc;
+  --blackColor: #000;
+  --whiteColor: #fff;
+  --whycioncardbg: #d37fa0;
+  --colorBlack: #122432;
+  --onlineGrayClr: #979797;
+  --FindOurLocationsbgclr: #fbe4ff;
+  --ourservicesCardBorderClr: #d5d5d5;
+  --ourDoctorsBoxShadow: 16px 18px 45px 0px #00000026;
+}
+
