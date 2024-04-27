@@ -5,7 +5,6 @@ import Index2 from "../Usermessages";
 import axios from "axios";
 
 
-
 export default function Sidebar() {
   const { users, setUsers } = useContext(ReactContext);
   const [isLoading, setIsLoading] = useState(false);
@@ -100,6 +99,7 @@ export default function Sidebar() {
             <li></li>
           </ul>
         </aside>
+        
         <div className={styles.message_container}>
         <Index2
             message={message}
@@ -107,8 +107,11 @@ export default function Sidebar() {
             showMessage={showMessage}
             patientNumber={patientNumber}
           />
+        
         </div>
-      </div>
+       
+        </div>
+    
     </>
   );
 }

@@ -1,7 +1,7 @@
 .messages-main-container{
     padding: 0 1rem 0 1rem;
     width: 100%;
-    height: 100%;
+   
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -101,4 +101,50 @@ right: 0.5rem;
 
 }
 
+.messages-main-container-all{
+    background-color: pink;
+    height: 60vh !important;
+    overflow-y: scroll;
+}
+.form-container{
+    background-color: #EAEAEA;
+    height: 4.86rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.form-container__icons{
+width: 1.68rem;
+height: 1.68rem;
+}
 
+form>input{
+    width: 50.86rem;
+    height: 2.86rem;
+    border-radius: 0.45rem;
+    background-color:#fff ;
+    border: none;
+    outline: none;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+}
+.form-container__btn{
+    background-color: var(--brandClr);
+    padding: 0.3rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    right: 3rem;
+    top: 0.65rem;
+
+}
+.Toastify__toast-theme--dark {
+  
+    margin-top: 2rem;
+}
+.mediaDocument{
+    width: 16rem;
+    height: 12rem;
+}

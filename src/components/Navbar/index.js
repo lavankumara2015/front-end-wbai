@@ -1,5 +1,4 @@
 import "./index.css";
-
 export default function Navbar() {
   return (
     <nav>
@@ -17,6 +16,9 @@ export default function Navbar() {
         <h2 className="nav-bar__h2">Ameerpet Cancer Coach</h2>
         </div>
       </div>
+    
     </nav>
+
+    
   );
 }
