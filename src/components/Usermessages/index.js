@@ -93,6 +93,9 @@ function Index2(props) {
     console.log("emoji selected" + emoji.emoji)
   }
   
+  const handleMedia =()=>{
+
+  }
   
 
  return (
@@ -208,7 +211,7 @@ function Index2(props) {
 
       <div className="form-container">
         <img onClick={handleEmoji} src="assets/LOL.png" alt="smile-icon" className="form-container__icons" />
-        <img src="assets/plussimbol.png" alt="plus-icon" className="form-container__icons"/>
+        <img onClick={handleMedia} src="assets/plussimbol.png" alt="plus-icon" className="form-container__icons"/>
         <img  onClick={handleText} src="assets/notes.png" alt="notes-icon" className="form-container__icons"/>
         <form onSubmit={handleSubmit}>
         <input type="text" value={textMessage} onChange={handleChange} placeholder="Type a message"/>
@@ -216,8 +219,8 @@ function Index2(props) {
       </form>
         </div>
         {showEditor && <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} className="form-container__text-box" />}
-        
         {showEmoji && <EmojiPicker onEmojiClick={handleEmojiSelect}/>}
+
     </>
   );
 }
