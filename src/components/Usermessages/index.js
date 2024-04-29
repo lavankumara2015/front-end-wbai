@@ -15,13 +15,13 @@ function Index2(props) {
   const [selectedMessageId, setSelectedMessageId] = useState(null);
   
 
+  // console.log(showMessage + "dataaa")
   
 
   const formatTimestamp = (timestamp) => {
     const date = new Date(parseInt(timestamp) * 1000);
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };  
-
   const helper = async (bodyData) => {
     try {
       const options = {
@@ -39,7 +39,6 @@ function Index2(props) {
       console.log(err);
     }
   };
- 
   const onSend =(e)=>{
     e.preventDefault();
     helper({
@@ -56,8 +55,6 @@ function Index2(props) {
     setSelectedMessageId(id === selectedMessageId ? null : id); 
      // console.log("selected message" + selectedMessageId)
   }
-
-
   const OnHandleReaction = (emoji,id) => {
 
   const newReaction = (reaction === emoji.emoji) ? '' : emoji.emoji;
@@ -72,14 +69,12 @@ function Index2(props) {
   });
   setReaction(newReaction);
   }
- 
     const handleText = () => {
     setShowEditor(prevState => !prevState); 
     setShowEmoji(false);
     const messagesMainContainer = document.getElementById("messages-main-container-id");
     messagesMainContainer.style.height = showEditor ? "76vh" : "40vh";
   }
- 
   const handleEmoji = () => {
     setShowEmoji(prevState => !prevState);
     setShowEditor(false); 
@@ -98,12 +93,7 @@ function Index2(props) {
     console.log("emoji selected" + emoji.emoji)
   }
   
-  // const handleEmojiClick = (emoji,id) => {
-   
-
-  //      console.log("handleEmojiClick" + emoji.emoji)
-  // }
-
+  
 
  return (
     <>
@@ -127,6 +117,7 @@ function Index2(props) {
           <div className="messages-main-container__text-inner" style={{ backgroundColor: `${val.message_type === "Outgoing" ? '#D5FFD5' : '#FBFAFA'}`,alignSelf: `${val.message_type === "Outgoing" ? 'flex-start' : 'flex-end'}`, order :  `${val.message_type === "Outgoing" ? '2' : '0'}`,}}>
           <h3 className="messages-main-container__h3">{val?.text?.body}</h3>
           <p className="messages-main-container__p">{formatTimestamp(val?.timestamp)}</p>
+          <p className="messages-main-container-all__Reactions">{val?.reactions[0]?.emoji} {val?.reactions[1]?.emoji}</p>
 {val?.type === "location" && (
       
                 <div >
@@ -197,13 +188,23 @@ function Index2(props) {
      
      
       </div>
-      
+      {/* <div className="messages-main-container-all__Reactions-names">
+           <div>
+            {val?.reactions[0]?.user}&nbsp;  &nbsp; {val?.reactions[0]?.emoji}
+           </div> <br/>
+           <div>
+            {val?.reactions[1]?.user}&nbsp; &nbsp; {val?.reactions[1]?.emoji}
+           </div>
+      </div> */}
       </div>
           </div>
           </div>
           );
         })}
+        
       </div>
+
+      
 
       <div className="form-container">
         <img onClick={handleEmoji} src="assets/LOL.png" alt="smile-icon" className="form-container__icons" />

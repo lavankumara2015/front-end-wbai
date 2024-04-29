@@ -29,6 +29,7 @@ export default function Sidebar() {
     };
     fetchData();
   }, []);
+  
 
   useEffect(() => {
     (async function () {
@@ -51,7 +52,7 @@ export default function Sidebar() {
   const handleName = (each, i) => {
     setpatientNumber(each.patient_phone_number);
     const data = userData.filter((item) => {
-      return item.from === each.patient_phone_number;
+    return item.from === each.patient_phone_number;
     });
     setShowMessage(data);
     setmessage(!false);
