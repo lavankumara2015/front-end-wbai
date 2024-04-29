@@ -14,7 +14,9 @@ export default function Sidebar() {
   const [showMessage, setShowMessage] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredUsers, setFilteredUsers] = useState([]);
-  const [patientNumber ,setpatientNumber]=useState("")
+  const [patientNumber ,setpatientNumber]=useState("");
+  const [showEditor, setShowEditor] = useState(false);
+  const [showEmoji, setShowEmoji] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +55,8 @@ export default function Sidebar() {
     });
     setShowMessage(data);
     setmessage(!false);
+    setShowEditor(false);
+    setShowEmoji(false);
   };
 
 
@@ -66,12 +70,17 @@ export default function Sidebar() {
   }, [search, users]);
 
 
+ 
+  
+ 
+
   return (
     <>
       <div style={{ display: "flex" }}>
         <aside>
           <div className={styles.sidebarHeader}>
             <div className={styles.searchBox}>
+              <img src="assets/Search.png" alt="search-icon" className={styles.searchIcon} />
               <input
                 type="search"
                 placeholder="Search for a Chat or User"
@@ -79,9 +88,9 @@ export default function Sidebar() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            {/* <button className={styles.addNewBtn}>
-              <img src="assets/Group 1.png" alt="unread-messages" />
-            </button> */}
+            <div>
+              <img src="assets/filter.png" alt="filter-icon" className={styles.filterIcon} />
+            </div>
           </div>
           <hr className={styles.hrLine} />
           <ul className={styles.userList}>
@@ -89,14 +98,13 @@ export default function Sidebar() {
               ? null
               : filteredUsers.map((each, i) => (
                   <li key={i}>
-                    <img src={each?.imageUrl || ""} alt="" />
+                    <img src={each.image_url} alt="profile-photo"/>
                     <div onClick={(e) => handleName(each, i)}>
                       <h1>{each.name}</h1>
                       <p>{each.patient_phone_number}</p>
                     </div>
                   </li>
                 ))}
-            <li></li>
           </ul>
         </aside>
         
@@ -106,6 +114,10 @@ export default function Sidebar() {
             userData={userData}
             showMessage={showMessage}
             patientNumber={patientNumber}
+            showEditor={showEditor} 
+           setShowEditor={setShowEditor} 
+            showEmoji={showEmoji} 
+           setShowEmoji={setShowEmoji} 
           />
         
         </div>
