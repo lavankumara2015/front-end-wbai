@@ -189,8 +189,14 @@ padding: 1rem !important;
    height: 3rem !important;
  
 }
-/* .messages-main-container-reaction-picker .epr_-8ygbw8 ,
-.messages-main-container-reaction-picker .epr_-xuzz9z 
-    {
-    display: none;
-} */
+.messages-main-container-all__Reactions{
+position: relative;
+top: 0.8rem;
+left: 0.5rem;
+}
+.messages-main-container-all__Reactions-names{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+

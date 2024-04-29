@@ -21,12 +21,23 @@ function Index2(props) {
   const [reaction, setReaction] = useState("no");
   const [text, setText] = useState("");
   const [selectedMessageId, setSelectedMessageId] = useState(null);
+<<<<<<< HEAD
+=======
+  
+
+  // console.log(showMessage + "dataaa")
+  
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
 
   const formatTimestamp = (timestamp) => {
     const date = new Date(parseInt(timestamp) * 1000);
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+<<<<<<< HEAD
   };
 
+=======
+  };  
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
   const helper = async (bodyData) => {
     try {
       const options = {
@@ -46,8 +57,12 @@ function Index2(props) {
       console.log(err);
     }
   };
+<<<<<<< HEAD
 
   const onSend = (e) => {
+=======
+  const onSend =(e)=>{
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
     e.preventDefault();
     helper({
       messaging_product: "whatsapp",
@@ -60,6 +75,7 @@ function Index2(props) {
     setTextMessage("");
   };
   const handleReaction = (id) => {
+<<<<<<< HEAD
     setSelectedMessageId(id === selectedMessageId ? null : id);
     // console.log("selected message" + selectedMessageId)
   };
@@ -80,13 +96,38 @@ function Index2(props) {
 
   const handleText = () => {
     setShowEditor((prevState) => !prevState);
+=======
+    setSelectedMessageId(id === selectedMessageId ? null : id); 
+     // console.log("selected message" + selectedMessageId)
+  }
+  const OnHandleReaction = (emoji,id) => {
+
+  const newReaction = (reaction === emoji.emoji) ? '' : emoji.emoji;
+  helper({
+    messaging_product: "whatsapp",
+    to: patientNumber,
+    type: "reaction",
+    data: {
+      message_id: id,
+      emoji: newReaction
+    }
+  });
+  setReaction(newReaction);
+  }
+    const handleText = () => {
+    setShowEditor(prevState => !prevState); 
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
     setShowEmoji(false);
     const messagesMainContainer = document.getElementById(
       "messages-main-container-id"
     );
     messagesMainContainer.style.height = showEditor ? "76vh" : "40vh";
+<<<<<<< HEAD
   };
 
+=======
+  }
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
   const handleEmoji = () => {
     setShowEmoji((prevState) => !prevState);
     setShowEditor(false);
@@ -103,6 +144,7 @@ function Index2(props) {
     onSend(e);
   };
   const handleEmojiSelect = (emoji) => {
+<<<<<<< HEAD
     setTextMessage(textMessage + emoji.emoji);
     console.log("emoji selected" + emoji.emoji);
   };
@@ -113,6 +155,15 @@ function Index2(props) {
   // }
 
   return (
+=======
+    setTextMessage(textMessage + emoji.emoji); 
+    console.log("emoji selected" + emoji.emoji)
+  }
+  
+  
+
+ return (
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
     <>
       {/* <ToastContainer
     position="top-right"
@@ -126,6 +177,7 @@ function Index2(props) {
           pauseOnHover
           theme="dark"
     /> */}
+<<<<<<< HEAD
       <div
         className="messages-main-container-all"
         id="messages-main-container-id">
@@ -197,6 +249,29 @@ function Index2(props) {
                         </a>
                       </div>
                     )}
+=======
+     <div className="messages-main-container-all" id="messages-main-container-id">
+        {message && showMessage?.map((val, ind) => {
+          return (
+          <div key={ind} className="messages-main-container"> 
+          <div className={`${val.message_type === "Outgoing" ? 'messages-main-container__text-left' : 'messages-main-container__text-right'}`}>
+          <div className="messages-main-container__text-inner" style={{ backgroundColor: `${val.message_type === "Outgoing" ? '#D5FFD5' : '#FBFAFA'}`,alignSelf: `${val.message_type === "Outgoing" ? 'flex-start' : 'flex-end'}`, order :  `${val.message_type === "Outgoing" ? '2' : '0'}`,}}>
+          <h3 className="messages-main-container__h3">{val?.text?.body}</h3>
+          <p className="messages-main-container__p">{formatTimestamp(val?.timestamp)}</p>
+          <p className="messages-main-container-all__Reactions">{val?.reactions[0]?.emoji} {val?.reactions[1]?.emoji}</p>
+{val?.type === "location" && (
+      
+                <div >
+            <iframe
+            className="location_container"
+                src={`https://maps.google.com/maps?q=${val.location.latitude},${val.location.longitude}&z=${12}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="google map"
+            ></iframe>
+            <a className="location__link" href="https://www.google.com/maps/place/${val.location.latitude}N+${val.location.longitude}E">https://maps.google.com/maps</a>
+        </div>
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
 
                     {val?.type === "video" && val?.media_data?.video && (
                       <div>
@@ -242,6 +317,7 @@ function Index2(props) {
                       </div>
                     )}
 
+<<<<<<< HEAD
                     {val?.type === "audio" && val?.media_data?.audio && (
                       <div>
                         <audio controls>
@@ -290,7 +366,61 @@ function Index2(props) {
               </div>
             );
           })}
+=======
+{val?.type === "document" && val?.media_data?.document && (
+  <div className="mediaDocument">
+    <iframe  src={`data:application/pdf;base64,${val.media_data.document.toString('base64')}`} ></iframe>
+    <a href={`data:application/pdf;base64,${val.media_data.document.toString('base64')}`} download="document.pdf">
+    <img className="download__icon" src="assets/download.png" alt="download symbol" />
+    </a>
+  </div>
+)}
+
+{val?.type === "audio" && val?.media_data?.audio && (
+  <div>
+    <audio controls>
+      <source src={`data:audio/mpeg;base64,${val.media_data.audio.toString('base64')}`} type="audio/mpeg" />
+    </audio>
+    <a href={`data:audio/mpeg;base64,${val.media_data.audio.toString('base64')}`} download="audio.mp3">
+      <img className="download__icon" src="assets/download.png" alt="download symbol" />
+    </a>
+  </div>
+)}
+ </div>
+ <div className="messages-main-container-reaction-picker">
+      <div>
+        <img onClick={() => handleReaction(val?.id)} src="assets/emoji_btn2.webp" alt="emoji-logo" className="emoji_logo" />
+        {selectedMessageId === val?.id &&  
+       
+       
+       <Picker   
+        reactionsDefaultOpen={true} 
+        onReactionClick={(emoji)=>OnHandleReaction(emoji,val?.id)}
+        onClick={handleReaction}
+        // onEmojiClick={handleEmojiClick}
+       />} 
+     
+     
+     
       </div>
+      {/* <div className="messages-main-container-all__Reactions-names">
+           <div>
+            {val?.reactions[0]?.user}&nbsp;  &nbsp; {val?.reactions[0]?.emoji}
+           </div> <br/>
+           <div>
+            {val?.reactions[1]?.user}&nbsp; &nbsp; {val?.reactions[1]?.emoji}
+           </div>
+      </div> */}
+      </div>
+          </div>
+          </div>
+          );
+        })}
+        
+>>>>>>> 49c515fe705000f5f5f2d83e38844fc7455e3967
+      </div>
+
+      
 
       <div className="form-container">
         <img
