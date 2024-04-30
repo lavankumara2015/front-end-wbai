@@ -30,7 +30,6 @@ export default function Sidebar() {
     };
     fetchData();
   }, []);
-  
 
   useEffect(() => {
     if (users.length !== 0) {
@@ -63,7 +62,7 @@ export default function Sidebar() {
     console.log(each, "Handle Name");
     setpatientNumber(each.patient_phone_number);
     const data = userData.filter((item) => {
-    return item.from === each.patient_phone_number;
+      return item.from === each.patient_phone_number;
     });
     setShowMessage(data);
     setmessage(!false);
